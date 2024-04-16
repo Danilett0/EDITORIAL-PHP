@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.FormLogin{
+    padding: 15px;
+    border: 1px solid #eee;
+    box-shadow: 5px 5px 5px #eee;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input, textarea, select{
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 0;
+}
+
+p{
+    margin: 10px 0px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20px 0px;
+}
+
+button{
+    background-color: rgb(10, 124, 90);
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    margin: 15px auto;
+    width: 100%;
+    cursor: pointer;
+}
+
+.error{
+    text-align: center;
+    color: rgb(224, 66, 66);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
+}
