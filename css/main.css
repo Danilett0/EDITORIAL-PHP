@@ -1,164 +1,227 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.FormLogin{
-    width: 100%;
-    max-width: 500px;
-    padding: 15px;
-    border: 1px solid #eee;
-    box-shadow: 5px 5px 5px #eee;
-    border-radius: 4px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fcfcfc;
+.FormLogin {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  border: 1px solid #eee;
+  box-shadow: 5px 5px 5px #eee;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fcfcfc;
 }
 
-.FormLogin >div input{
-    width: 100%;
-    padding: 10px;
+.FormLogin > div input {
+  width: 100%;
+  padding: 10px;
 }
 
-.FormLogin >div p{
-    color: rgb(53, 53, 53);
-    font-weight: bold;
-    text-transform: uppercase;
+.FormLogin > div p {
+  color: rgb(53, 53, 53);
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-
-
-input, textarea, select{
-    border: 1px solid #eee;
-    border-radius: 4px;
-    padding: 4px;
-    margin: 0;
+input,
+textarea,
+select {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 0;
 }
 
-p{
-    margin: 10px 0px;
+p {
+  margin: 10px 0px;
 }
 
-h1, h2, h3, h4, h5, h6{
-    text-align: center;
-    text-transform: uppercase;
-    margin: 20px 0px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 20px 0px;
 }
 
-button{
-    background-color: rgb(10, 124, 90);
-    border: none;
-    border-radius: 4px;
-    padding: 5px;
-    color: white;
-    font-weight: bold;
-    margin: 15px auto;
-    width: 100%;
-    cursor: pointer;
+button {
+  background-color: rgb(10, 124, 90);
+  border: none;
+  border-radius: 4px;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  margin: 15px auto;
+  width: 100%;
+  cursor: pointer;
 }
 
-.error{
-    text-align: center;
-    color: rgb(224, 66, 66);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 11px;
+.error {
+  text-align: center;
+  color: rgb(224, 66, 66);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 11px;
 }
 
-.Button{
-    background-color: rgb(12, 114, 106);
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px 8px;
-    text-transform: uppercase;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 1px 1px 9px #706f6f;
-    position: absolute;
-    top: 10px;
-    right:10px;
+.Button {
+  background-color: rgb(12, 114, 106);
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 8px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 9px #706f6f;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.Menu{
-    width: 95%;
-    margin: auto;
-    padding: 25px;
-    box-shadow: 1px 1px 9px #dddcdc;
-    border-radius: 4px;
-    margin-top: 20px;
-    position: relative;
+.Menu {
+  width: 95%;
+  margin: auto;
+  padding: 25px;
+  box-shadow: 1px 1px 9px #dddcdc;
+  border-radius: 4px;
+  margin-top: 20px;
+  position: relative;
 }
 
-.Menu h2{
-    margin: 5px 10px 0;
+.Menu h2 {
+  margin: 5px 10px 0;
 }
 
-
-.MensajeBienbenida{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    flex-direction: column;
-    align-items: flex-end;
+.MensajeBienbenida {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-.NuevaRevista{
-    width: 100%;
-    max-width: 800px;
-    padding: 15px;
-    
-    border-radius: 4px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.NuevaRevista {
+  width: 100%;
+  max-width: 800px;
+  padding: 15px;
+
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-
-.NuevaRevista input, textarea, select{
-    width: 100%;
-    padding: 10px;
+.NuevaRevista input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
 }
 
-
-.NuevaRevista .articulo, .NuevaRevista .revista {
-    background-color: #f8f8f8;
-    padding: 20px;
-    margin: 10px 0px;
-    border: 1px solid #eee;
+.NuevaRevista .articulo,
+.NuevaRevista .revista {
+  background-color: #f8f8f8;
+  padding: 20px;
+  margin: 10px 0px;
+  border: 1px solid #eee;
 }
 
-.NuevaRevista .colx2{
-    display: flex;
-    justify-content: space-between;
+.NuevaRevista .colx2 {
+  display: flex;
+  justify-content: space-between;
 }
 
-.NuevaRevista .colx2 div{
-    width: 49%;
+.NuevaRevista .colx2 div {
+  width: 49%;
 }
 
+.listadoRevistas {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+a.BoxRevistas {
+  width: 100%;
+  max-width: 250px;
+  display: flex;
+  margin: 10px;
+  background-color: #f7f7f7;
+}
+
+a.BoxRevistas > div,
 .CardRevista {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.BoxArt{
     width: 100%;
-    padding: 2px 10px;
+    margin: 5px;
+    padding: 1px 7px;
+}
+
+.ContainerArt img{
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.ContainerArt img:hover{
+  transform: scale(1.1);
+}
+
+.BoxArt >div{
+    display: flex;
+    color: rgb(46, 46, 46);
+}
+
+.BoxArt >div span{
+    font-weight: bold;
+    margin: 0px 5px;
+    color: rgb(7, 163, 155);
+    text-transform: capitalize;
+    background: #eee;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.CardRevista:hover {
+  background-color: #eee;
+}
+
+.Round {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px #eee;
+}
+
+a {
+  text-decoration: none;
+}
+
+.listadoArticulos .ContainerArt{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 20px auto; 
-    background-color: #f7f7f7;
-}
-
-.CardRevista:hover{
-    background-color: #eee;
-}
-
-.Round{
-    border: 1px solid #eee;
-    border-radius: 4px;
-    box-shadow: 1px 1px 5px #eee;
+    padding: 3px 7px;
+    margin: 10px 0px;
 }

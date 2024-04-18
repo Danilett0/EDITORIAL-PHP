@@ -1,6 +1,5 @@
 <?php
-
-require_once 'database.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . "/editorial/models/database.php";
 class ValidarSessionModel
 {
     private $conn;
@@ -15,7 +14,6 @@ class ValidarSessionModel
     }
 
     public function validarLogin($username, $password) {
-        session_start();
         $this->userName = $username;
         $this->userPassw = $password;
         $result = null;

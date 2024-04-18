@@ -1,6 +1,6 @@
 <?php
-require_once "../models/database.php";
-require_once "../controllers/OperacionesDbController.php";
+
+include_once $_SERVER['DOCUMENT_ROOT'] . "/editorial/models/database.php";
 
 class OperacionesDbModel
 {
@@ -17,7 +17,7 @@ class OperacionesDbModel
     }
 
     public function buscarRevistas() {
-        $qNuevaRev = $this->conn->query("SELECT doc_revista, nombre FROM revistas");
+        $qNuevaRev = $this->conn->query("SELECT doc_revista, nombre FROM revistas ");
         
         $datos = array();
         while($row = mysqli_fetch_assoc($qNuevaRev)){
@@ -27,7 +27,7 @@ class OperacionesDbModel
     }
 
     public function buscarArticulos($idRevista) {
-        $qArticulos = $this->conn->query("SELECT * FROM articulos WHERE doc_revista = $idRevista ");
+        $qArticulos = $this->conn->query("SELECT * FROM articulos WHERE doc_revista = $idRevista AND estado != 'INACTIVO' ");
         
         $datos = array();
         while($row = mysqli_fetch_assoc($qArticulos)){
@@ -36,6 +36,11 @@ class OperacionesDbModel
         return $datos;
     }
 
+    public function buscarArticuloId($idArt) {
+        $qArticulos = $this->conn->query("SELECT * FROM articulos WHERE doc_articulo = $idArt AND estado != 'INACTIVO' ");
+        
+        return mysqli_fetch_assoc($qArticulos);
+    }
 
     public function crearNuevaRevista($nombre) {
 
@@ -53,8 +58,8 @@ class OperacionesDbModel
 
         $fecha = date('Y-m-d');
 
-        $qInsert = "INSERT INTO articulos (nombre, contenido, periosidad, categoria, fecha, doc_revista) ";
-        $qInsert .= "VALUES ( '$nomArt', '$contenidoArt', '$periosidadArt', '$categoriaArt', '$fecha' , $idRevista ) ";
+        $qInsert = "INSERT INTO articulos (nombre, contenido, periosidad, categoria, fecha, doc_revista, estado) ";
+        $qInsert .= "VALUES ( '$nomArt', '$contenidoArt', '$periosidadArt', '$categoriaArt', '$fecha' , $idRevista, 'ACTIVO' ) ";
 
         if ($this->conn->query($qInsert)) {
 
@@ -65,7 +70,17 @@ class OperacionesDbModel
         } else {
             return "error al crear articulo";
         }
+    }
 
+    public function inactivarArticulo($idArt) {
+
+        $qUpdate = "UPDATE articulos SET estado ='INACTIVO' WHERE doc_articulo = $idArt ";
+
+        if($this->conn->query($qUpdate)){
+            return true;
+        }else{
+            return "error al inactivar articulo Id. " . $idArt;
+        }
     }
 
 

@@ -1,5 +1,5 @@
 <?php
-include_once "../models/OperacionesDbModel.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/editorial/models/OperacionesDbModel.php";
 
 class OperacionesDbController
 {
@@ -21,6 +21,10 @@ class OperacionesDbController
         return $this->operacionesModel->buscarArticulos($idRevista);
     }
 
+    public function buscarArticuloId($idArt) {
+        return $this->operacionesModel->buscarArticuloId($idArt);
+    }
+
     public function crearNuevaRevista($nombre) {
 
         return $this->operacionesModel->crearNuevaRevista($nombre);
@@ -29,8 +33,16 @@ class OperacionesDbController
     public function crearNuevoArticulo($nomArt, $contenidoArt, $periosidadArt, $categoriaArt, $idRevista) {
 
         return $this->operacionesModel->crearNuevoArticulo(
-            $nomArt, $contenidoArt, $periosidadArt, $categoriaArt, $idRevista
+            $nomArt,
+            $contenidoArt,
+            $periosidadArt,
+            $categoriaArt,
+            $idRevista
         );
+    }
+
+    public function inactivarArticulo($idArt){
+        return $this->operacionesModel->inactivarArticulo($idArt);
     }
 
 }

@@ -1,5 +1,6 @@
 <?php
-include_once "./models/loginModel.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/editorial/models/loginModel.php";
+
 
 class ValidarLoginController
 {

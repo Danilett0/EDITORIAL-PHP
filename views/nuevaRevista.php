@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../controllers/OperacionesDbController.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/editorial/controllers/OperacionesDbController.php";
 
 if (!$_SESSION['login']) {
     header('Location: ../index.php');
