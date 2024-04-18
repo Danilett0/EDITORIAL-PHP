@@ -100,6 +100,16 @@ button {
   position: relative;
 }
 
+.Menu .Previous{
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 35px;
+  height: 35px;
+}
+
 .Menu h2 {
   margin: 5px 10px 0;
 }

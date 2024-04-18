@@ -17,6 +17,10 @@ class OperacionesDbController
         return $this->operacionesModel->buscarRevistas();
     }
 
+    public function buscarRevistaId($idRev) {
+        return $this->operacionesModel->buscarRevistaId($idRev);
+    }
+
     public function buscarArticulos($idRevista) {
         return $this->operacionesModel->buscarArticulos($idRevista);
     }

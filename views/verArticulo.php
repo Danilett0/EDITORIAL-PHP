@@ -13,7 +13,6 @@ if (!$_SESSION['login']) {
 $controller = new OperacionesDbController();
 $consultaArticulo = $controller->buscarArticuloId($idArt);
 
-print_r($consultaArticulo);
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +31,10 @@ print_r($consultaArticulo);
         <p><?= $_SESSION['userCargo'] ?></p>
     </div>
     <div class="Menu">
+
+    <a href="verRevista.php?idRev=<?= $_GET['idRev'] ?> ">
+    <img class="Previous" src="../images/icons/previous.png" alt="previous">
+    </a>
 
         <div class="listadoRevistas">
             <?php

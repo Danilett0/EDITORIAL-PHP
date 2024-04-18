@@ -12,10 +12,11 @@ if (!$_SESSION['login']) {
 
 $controller = new OperacionesDbController();
 $consultaArticulos = $controller->buscarArticulos($idRev);
+$consultaRevista = $controller->buscarRevistaId($idRev);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -23,6 +24,54 @@ $consultaArticulos = $controller->buscarArticulos($idRev);
     <title>Home</title>
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="MensajeBienbenida">
+        <p>Hola! <?= $_SESSION['userName'] ?></p>
+        <p><?= $_SESSION['userCargo'] ?></p>
+    </div>
+    <div class="Menu">
+    <a class="Button" href="nuevoArticulo.php?idRev=<?=$idRev?>">Crear Articulo</a>
+    <a href="home.php">
+    <img class="Previous" src="../images/icons/previous.png" alt="previous">
+    </a>
+
+        <h2><?= $consultaRevista['nombre'] ?></h2>
+
+        <div class="listadoArticulos">
+            
+            <?php
+            if ($consultaArticulos) {
+                echo "<b>Articulos Relacionados</b>";
+                for ($i = 0; $i < count($consultaArticulos); $i++) { ?>
+
+                    <div class="ContainerArt Round" data-id="<?= $consultaArticulos[$i]['doc_articulo']?>">
+
+                        <a class="BoxArt" href="verArticulo.php?idArt=<?=$consultaArticulos[$i]['doc_articulo']."&idRev=".$_GET['idRev'] ?>">
+                            <div>
+                                <p><span>Titulo. </span> <?= $consultaArticulos[$i]['nombre'] ?></p>
+                                <p><span>Categoria. </span> <?= $consultaArticulos[$i]['categoria'] ?></p>
+                                <p><span>Fecha Publicacion. </span> <?= $consultaArticulos[$i]['fecha'] ?></p>
+                            </div>
+                        </a>
+
+                        <div>
+                            <div class="eliminar" data-id="<?= $consultaArticulos[$i]['doc_articulo'] ?>">
+                                <img src="../images/icons/delete.png" alt="delete">
+                            </div>
+                        </div>
+
+                    </div>
+
+                <?php }
+            } else {
+                echo "<h5> No se encontraron articulos! </h5>";
+            } ?>
+        </div>
+
+    </div>
+
 
     <script>
         $(document).ready(function () {
@@ -55,46 +104,6 @@ $consultaArticulos = $controller->buscarArticulos($idRev);
 
     </script>
 
-</head>
-
-<body>
-    <div class="MensajeBienbenida">
-        <p>Hola! <?= $_SESSION['userName'] ?></p>
-        <p><?= $_SESSION['userCargo'] ?></p>
-    </div>
-    <div class="Menu">
-        <h2>ARTICULOS ENCONTRADOS</h2>
-
-        <div class="listadoArticulos">
-            <?php
-            if ($consultaArticulos) {
-                for ($i = 0; $i < count($consultaArticulos); $i++) { ?>
-
-                    <div class="ContainerArt Round" data-id="<?= $consultaArticulos[$i]['doc_articulo'] ?>">
-
-                        <a class="BoxArt" href="verArticulo.php?idArt=<?= $consultaArticulos[$i]['doc_articulo'] ?>">
-                            <div>
-                                <p><span>Titulo. </span> <?= $consultaArticulos[$i]['nombre'] ?></p>
-                                <p><span>Categoria. </span> <?= $consultaArticulos[$i]['categoria'] ?></p>
-                                <p><span>Fecha Publicacion. </span> <?= $consultaArticulos[$i]['fecha'] ?></p>
-                            </div>
-                        </a>
-
-                        <div>
-                            <div class="eliminar" data-id="<?= $consultaArticulos[$i]['doc_articulo'] ?>">
-                                <img src="../images/icons/delete.png" alt="delete">
-                            </div>
-                        </div>
-
-                    </div>
-
-                <?php }
-            } else {
-                echo "<h5> No se encontraron articulos! </h5>";
-            } ?>
-        </div>
-
-    </div>
 </body>
 
 </html>

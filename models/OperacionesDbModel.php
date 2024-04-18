@@ -26,6 +26,12 @@ class OperacionesDbModel
         return $datos;
     }
 
+    public function buscarRevistaId($idRev) {
+        $qNuevaRev = $this->conn->query("SELECT * FROM revistas where doc_revista = $idRev ");
+        
+        return mysqli_fetch_assoc($qNuevaRev);
+    }
+
     public function buscarArticulos($idRevista) {
         $qArticulos = $this->conn->query("SELECT * FROM articulos WHERE doc_revista = $idRevista AND estado != 'INACTIVO' ");
         

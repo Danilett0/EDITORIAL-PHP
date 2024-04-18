@@ -30,7 +30,7 @@ $consultaRevistas = $controller->buscarRevistas();
     </div>
     <div class="Menu">
         <a class="Button" href="nuevaRevista.php">Crear Revista</a>
-        <h2>REVISTAS EDITORIAL</h2>
+        <h2>REVISTAS CREADAS</h2>
 
         <div class="listadoRevistas">
 
@@ -42,11 +42,11 @@ $consultaRevistas = $controller->buscarRevistas();
                     $articulosEnc = $controller->buscarArticulos($consultaRevistas[$i]['doc_revista']);
                     $nArt = count($articulosEnc) ?>
 
-                    <a class="BoxRevistas" href="verRevista.php?idRev=<?=$consultaRevistas[$i]['doc_revista'] ?>">
-                    <div class="CardRevista Round">
-                        <h4><?= $consultaRevistas[$i]['nombre'] ?></h4>
-                        <p><?= $nArt > 1 ? $nArt . " Articulos" : $nArt . " Articulo" ?> </p>
-                    </div>
+                    <a class="BoxRevistas" href="verRevista.php?idRev=<?= $consultaRevistas[$i]['doc_revista'] ?>">
+                        <div class="CardRevista Round">
+                            <h4><?= $consultaRevistas[$i]['nombre'] ?></h4>
+                            <p><?= $nArt > 1 ? $nArt . " Articulos" : $nArt . " Articulo" ?> </p>
+                        </div>
                     </a>
 
                 <?php }

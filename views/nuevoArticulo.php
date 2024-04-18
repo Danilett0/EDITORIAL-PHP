@@ -7,73 +7,54 @@ if (!$_SESSION['login']) {
     exit();
 }
 
-$operacionesRevista = new OperacionesDbController();
+if(isset($_POST['nomArt'])){
 
-if (isset($_POST['nomRev'])) {
-
-    $idRevista = $operacionesRevista->crearNuevaRevista($_POST['nomRev']);
-
-    if ($idRevista) {
+    $OperacionesDbController = new OperacionesDbController();
         $nomArt = $_POST['nomArt'];
         $contenidoArt = $_POST['contenidoArt'];
         $periosidadArt = $_POST['periosidadArt'];
         $categoriaArt = $_POST['categoriaArt'];
+        $idRev = $_POST['idRev'];
 
-        $datosArt = $operacionesRevista->crearNuevoArticulo(
-            $nomArt,
-            $contenidoArt,
-            $periosidadArt,
-            $categoriaArt,
-            $idRevista
+        $datosArt = $OperacionesDbController->crearNuevoArticulo(
+            $nomArt, $contenidoArt, $periosidadArt, $categoriaArt, $idRev
         );
 
-        if ($datosArt) {
-            header('Location: home.php');
+        if($datosArt){
+            header("Location: verRevista.php?idRev=$idRev");
         }
-    }
-
 }
 
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Revista</title>
+    <title>Home</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
 
-    <div class="MensajeBienbenida">
+<div class="MensajeBienbenida">
         <p>Hola! <?= $_SESSION['userName'] ?></p>
         <p><?= $_SESSION['userCargo'] ?></p>
     </div>
     <div class="Menu">
 
-        <a href="home.php?> ">
-            <img class="Previous" src="../images/icons/previous.png" alt="previous">
-        </a>
+    <a href="verRevista.php?idRev=<?= $_GET['idRev'] ?> ">
+    <img class="Previous" src="../images/icons/previous.png" alt="previous">
+    </a>
 
     </div>
 
-    <form action="nuevaRevista.php" method="post" class="NuevaRevista">
-        <br><br><br><br><br>
+    <form action="nuevoArticulo.php" method="post" class="NuevaRevista">
+        <h1>Crear nuevo Articulo</h1>
 
-        <h1>Crear nueva revista</h1>
-
-        <div class="revista">
-            <h5>Ingrese el nombre de la revista</h5>
-            <input name="nomRev" type="text" required>
-        </div>
-        <br>
-        <i>Nota: la revista debe contener al menos un articulo para ser creada</i>
         <div class="articulo">
-
             <p>Nombre del articulo</p>
             <input name="nomArt" type="text" required>
 
@@ -100,16 +81,11 @@ if (isset($_POST['nomRev'])) {
 
             </div>
 
-
-
-
             <button type="submit">Finalizar</button>
 
         </div>
-
-
+        <input type="hidden" name="idRev" value="<?= $_GET['idRev']?> ">
     </form>
-
 </body>
 
 </html>
