@@ -32,6 +32,11 @@ $consultaArticulo = $controller->buscarArticuloId($idArt);
     </div>
     <div class="Menu">
 
+    <a class="CreaRevista" href="editarArticulo.php?idArt=<?= $idArt ?>">
+            <img src="../images/icons/edit.png" alt="editar">
+            <p>Editar Articulo</p>
+        </a>
+
     <a href="verRevista.php?idRev=<?= $_GET['idRev'] ?> ">
     <img class="Previous" src="../images/icons/previous.png" alt="previous">
     </a>

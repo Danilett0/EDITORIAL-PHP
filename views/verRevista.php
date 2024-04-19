@@ -31,47 +31,46 @@ $consultaRevista = $controller->buscarRevistaId($idRev);
         <p>Hola! <?= $_SESSION['userName'] ?></p>
         <p><?= $_SESSION['userCargo'] ?></p>
     </div>
+
     <div class="Menu">
-    <a class="Button" href="nuevoArticulo.php?idRev=<?=$idRev?>">Crear Articulo</a>
-    <a href="home.php">
-    <img class="Previous" src="../images/icons/previous.png" alt="previous">
-    </a>
-
-        <h2><?= $consultaRevista['nombre'] ?></h2>
-
-        <div class="listadoArticulos">
-            
-            <?php
-            if ($consultaArticulos) {
-                echo "<b>Articulos Relacionados</b>";
-                for ($i = 0; $i < count($consultaArticulos); $i++) { ?>
-
-                    <div class="ContainerArt Round" data-id="<?= $consultaArticulos[$i]['doc_articulo']?>">
-
-                        <a class="BoxArt" href="verArticulo.php?idArt=<?=$consultaArticulos[$i]['doc_articulo']."&idRev=".$_GET['idRev'] ?>">
-                            <div>
-                                <p><span>Titulo. </span> <?= $consultaArticulos[$i]['nombre'] ?></p>
-                                <p><span>Categoria. </span> <?= $consultaArticulos[$i]['categoria'] ?></p>
-                                <p><span>Fecha Publicacion. </span> <?= $consultaArticulos[$i]['fecha'] ?></p>
-                            </div>
-                        </a>
-
-                        <div>
-                            <div class="eliminar" data-id="<?= $consultaArticulos[$i]['doc_articulo'] ?>">
-                                <img src="../images/icons/delete.png" alt="delete">
-                            </div>
-                        </div>
-
-                    </div>
-
-                <?php }
-            } else {
-                echo "<h5> No se encontraron articulos! </h5>";
-            } ?>
-        </div>
-
+    <a class="CreaRevista" href="nuevoArticulo.php?idRev=<?= $idRev ?>">
+            <img src="../images/icons/add.png" alt="crear revista">
+            <p>Nuevo Articulo</p>
+        </a>
+        <a href="home.php">
+            <img class="Previous" src="../images/icons/previous.png" alt="previous">
+        </a>
     </div>
 
+    <div class="listadoArticulos">
+        <?php
+        if ($consultaArticulos) {
+            echo "<b>" . strtoupper($consultaRevista['nombre']) . "</b>, Articulos Relacionados";
+            for ($i = 0; $i < count($consultaArticulos); $i++) { ?>
+
+                <div class="ContainerArt Round" data-id="<?= $consultaArticulos[$i]['doc_articulo'] ?>">
+
+                    <a class="BoxArt"
+                        href="verArticulo.php?idArt=<?= $consultaArticulos[$i]['doc_articulo'] . "&idRev=" . $_GET['idRev'] ?>">
+                        <div>
+                            <p><span>Articulo </span><?= $consultaArticulos[$i]['nombre'] ?></p>
+                            <p>, Publicado el <?= $consultaArticulos[$i]['fecha'] ?></p>
+                        </div>
+                    </a>
+
+                    <div>
+                        <div class="eliminar" data-id="<?= $consultaArticulos[$i]['doc_articulo'] ?>">
+                            <img src="../images/icons/delete.png" alt="delete">
+                        </div>
+                    </div>
+
+                </div>
+
+            <?php }
+        } else {
+            echo "<h5> No se encontraron articulos! </h5>";
+        } ?>
+    </div>
 
     <script>
         $(document).ready(function () {

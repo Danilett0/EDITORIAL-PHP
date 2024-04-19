@@ -94,13 +94,14 @@ button {
   width: 95%;
   margin: auto;
   padding: 25px;
-  box-shadow: 1px 1px 9px #dddcdc;
+  box-shadow: 1px 1px 4px #dddcdc;
+  background: #f8f8f8;
   border-radius: 4px;
   margin-top: 20px;
   position: relative;
 }
 
-.Menu .Previous{
+.Menu .Previous {
   text-decoration: none;
   cursor: pointer;
   position: absolute;
@@ -160,6 +161,8 @@ select {
 }
 
 .listadoRevistas {
+  width: 95%;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
@@ -184,35 +187,38 @@ a.BoxRevistas > div,
   justify-content: space-between;
 }
 
-.BoxArt{
-    width: 100%;
-    margin: 5px;
-    padding: 1px 7px;
+.BoxArt {
+  width: 100%;
+  margin: 5px;
+  padding: 1px 7px;
+}
+.ContainerArt:hover {
+  background-color: #eee;
 }
 
-.ContainerArt img{
+.ContainerArt img {
   width: 35px;
   height: 35px;
   cursor: pointer;
 }
 
-.ContainerArt img:hover{
+.ContainerArt img:hover {
   transform: scale(1.1);
 }
 
-.BoxArt >div{
-    display: flex;
-    color: rgb(46, 46, 46);
+.BoxArt > div {
+  display: flex;
+  color: rgb(46, 46, 46);
 }
 
-.BoxArt >div span{
-    font-weight: bold;
-    margin: 0px 5px;
-    color: rgb(7, 163, 155);
-    text-transform: capitalize;
-    background: #eee;
-    padding: 4px;
-    border-radius: 4px;
+.BoxArt > div span {
+  font-weight: bold;
+  margin: 0px 5px;
+  color: rgb(7, 163, 155);
+  text-transform: capitalize;
+  background: #eee;
+  padding: 4px;
+  border-radius: 4px;
 }
 
 .CardRevista:hover {
@@ -229,9 +235,36 @@ a {
   text-decoration: none;
 }
 
-.listadoArticulos .ContainerArt{
-    display: flex;
-    align-items: center;
-    padding: 3px 7px;
-    margin: 10px 0px;
+.listadoArticulos {
+  width: 95%;
+  margin: 20px auto;
+}
+
+.listadoArticulos .ContainerArt {
+  display: flex;
+  align-items: center;
+  padding: 3px 7px;
+  margin: 10px 0px;
+}
+
+.CreaRevista {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.CreaRevista:hover{
+  transform: scale(1.05);
+}
+
+.CreaRevista > img {
+  width: 35px;
+  height: 35px;
+}
+
+.CreaRevista > p{
+  font-weight: bold;
+  color: rgb(44, 44, 44);
 }
