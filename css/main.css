@@ -1,3 +1,4 @@
+/* RESETEO DE ESTILOS GLOBALES */
 * {
   margin: 0;
   padding: 0;
@@ -6,42 +7,19 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.FormLogin {
-  width: 100%;
-  max-width: 500px;
-  padding: 15px;
-  border: 1px solid #eee;
-  box-shadow: 5px 5px 5px #eee;
-  border-radius: 4px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fcfcfc;
-}
-
-.FormLogin > div input {
-  width: 100%;
-  padding: 10px;
-}
-
-.FormLogin > div p {
-  color: rgb(53, 53, 53);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
+/* ESTILOS PARA ELEMENTOS EN GENERAL */
 input,
 textarea,
 select {
   border: 1px solid #eee;
   border-radius: 4px;
-  padding: 4px;
-  margin: 0;
+  padding: 10px;
+  margin: 5px 0px;
+  width: 100%;
 }
 
-p {
-  margin: 10px 0px;
+a {
+  text-decoration: none;
 }
 
 h1,
@@ -50,16 +28,15 @@ h3,
 h4,
 h5,
 h6 {
-  text-align: center;
   text-transform: uppercase;
-  margin: 20px 0px;
+  text-align: center;
 }
 
 button {
-  background-color: rgb(10, 124, 90);
+  background-color: #057269;
   border: none;
   border-radius: 4px;
-  padding: 5px;
+  padding: 10px 5px;
   color: white;
   font-weight: bold;
   margin: 15px auto;
@@ -67,117 +44,127 @@ button {
   cursor: pointer;
 }
 
-.error {
-  text-align: center;
-  color: rgb(224, 66, 66);
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 11px;
+button:hover {
+  background-color: #04645c;
+  transform: scale(1.02);
+  transition: 0.5s;
 }
 
-.Button {
-  background-color: rgb(12, 114, 106);
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  padding: 10px 8px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 9px #706f6f;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.Menu {
-  width: 95%;
-  margin: auto;
-  padding: 25px;
-  box-shadow: 1px 1px 4px #dddcdc;
-  background: #f8f8f8;
-  border-radius: 4px;
-  margin-top: 20px;
-  position: relative;
-}
-
-.Menu .Previous {
-  text-decoration: none;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 35px;
-  height: 35px;
-}
-
-.Menu h2 {
-  margin: 5px 10px 0;
-}
-
-.MensajeBienbenida {
-  width: 100%;
+/* ESTILOS PUNTUALES */
+body header .DataUser {
   display: flex;
-  justify-content: flex-end;
-  padding: 10px 20px;
   flex-direction: column;
   align-items: flex-end;
+  padding: 20px;
+  background-color: #057269;
 }
 
-.NuevaRevista {
-  width: 100%;
-  max-width: 800px;
-  padding: 15px;
+body header .DataUser p {
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  margin: 0px;
+}
 
+body main {
+  position: relative;
+  border: 2px solid #eee;
+  width: 95%;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 4px;
+  box-shadow: 1px 2px 5px #eee;
+  background-color: #fcfcfc;
+}
+
+body header .MenuNavegacion {
+  background-color: #eee;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body header .MenuNavegacion .icon {
+  width: 35px;
+  height: 35px;
+  margin: 0px 5px;
+}
+
+body header .MenuNavegacion div {
+  display: flex;
+  align-items: center;
+}
+
+body header .MenuNavegacion .OptionMenu {
+  display: flex;
+  align-items: center;
+  color: rgb(68, 68, 68);
+  font-weight: bold;
+  font-size: 14px;
+  padding: 2px 4px;
+}
+
+body header .MenuNavegacion .OptionMenu:hover {
+  background: #05726971;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+body .FormLogin {
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
   border-radius: 4px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.137);
+  color: white;
 }
 
-.NuevaRevista input,
-textarea,
-select {
+body .FormLogin input {
   width: 100%;
   padding: 10px;
+  margin: 10px 0px;
 }
 
-.NuevaRevista .articulo,
-.NuevaRevista .revista {
+body main .NuevaRevista .articulo,
+body main .NuevaRevista .revista {
   background-color: #f8f8f8;
   padding: 20px;
   margin: 10px 0px;
   border: 1px solid #eee;
 }
 
-.NuevaRevista .colx2 {
+body main .NuevaRevista .colx2 {
   display: flex;
   justify-content: space-between;
 }
 
-.NuevaRevista .colx2 div {
+body main .NuevaRevista .colx2 div {
   width: 49%;
 }
 
-.listadoRevistas {
-  width: 95%;
-  margin: auto;
+body main .listadoRevistas {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
-a.BoxRevistas {
+body main .listadoRevistas a.BoxRevistas {
   width: 100%;
-  max-width: 250px;
+  max-width: 210px;
   display: flex;
-  margin: 10px;
-  background-color: #f7f7f7;
+  margin: 5px;
+  background-color: white;
+  min-height: 130px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
-a.BoxRevistas > div,
-.CardRevista {
+body main .listadoRevistas a.BoxRevistas > div {
   width: 100%;
   padding: 10px;
   display: flex;
@@ -187,31 +174,33 @@ a.BoxRevistas > div,
   justify-content: space-between;
 }
 
-.BoxArt {
-  width: 100%;
-  margin: 5px;
-  padding: 1px 7px;
-}
-.ContainerArt:hover {
+body main .ContainerArt:hover {
   background-color: #eee;
 }
 
-.ContainerArt img {
+body main .ContainerArt img {
   width: 35px;
   height: 35px;
   cursor: pointer;
 }
 
-.ContainerArt img:hover {
+body main .ContainerArt img:hover {
   transform: scale(1.1);
 }
 
-.BoxArt > div {
+body main .ContainerArt .BoxArt {
+  width: 100%;
+  margin: 5px;
+  padding: 1px 7px;
+  padding: 5px;
+}
+
+body main .ContainerArt .BoxArt > div {
   display: flex;
   color: rgb(46, 46, 46);
 }
 
-.BoxArt > div span {
+body main .ContainerArt .BoxArt > div span {
   font-weight: bold;
   margin: 0px 5px;
   color: rgb(7, 163, 155);
@@ -221,23 +210,31 @@ a.BoxRevistas > div,
   border-radius: 4px;
 }
 
-.CardRevista:hover {
-  background-color: #eee;
+body main .BodyArticle{
+  padding: 10px;
 }
 
-.Round {
-  border: 1px solid #eee;
-  border-radius: 4px;
-  box-shadow: 1px 1px 5px #eee;
+body main .BodyArticle h2{
+  text-align: left;
 }
 
-a {
-  text-decoration: none;
+body main .BodyArticle .ContentArticle{
+  margin: 15px 0px;
+  line-height: 150%;
+  font-size: 19px;
 }
 
-.listadoArticulos {
-  width: 95%;
-  margin: 20px auto;
+body main .BodyArticle .InfoArticle{
+  display: flex;
+}
+
+body main .BodyArticle .InfoArticle p{
+  margin-right: 10px;
+}
+
+body main .BodyArticle .InfoArticle span{
+  color: #057269;
+  font-weight: bold;
 }
 
 .listadoArticulos .ContainerArt {
@@ -255,7 +252,7 @@ a {
   top: 5px;
 }
 
-.CreaRevista:hover{
+.CreaRevista:hover {
   transform: scale(1.05);
 }
 
@@ -264,7 +261,37 @@ a {
   height: 35px;
 }
 
-.CreaRevista > p{
+.CreaRevista > p {
   font-weight: bold;
   color: rgb(44, 44, 44);
+}
+
+/* LISTADO DE CLASES GENERALES EN EL PROYECTO  */
+
+.BigTitle {
+  text-align: center;
+  background-color: #057269;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px #a5a5a5;
+  user-select: none;
+}
+
+.error {
+  text-align: center;
+  color: rgb(224, 66, 66);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+body.BackBody {
+  background-color: #021c29;
+}
+
+.Round {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px #eee;
 }

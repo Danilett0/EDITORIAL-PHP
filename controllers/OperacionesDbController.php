@@ -45,8 +45,12 @@ class OperacionesDbController
         );
     }
 
-    public function inactivarArticulo($idArt){
+    public function inactivarArticulo($idArt) {
         return $this->operacionesModel->inactivarArticulo($idArt);
+    }
+
+    public function inactivarRevista($idRev) {
+        return $this->operacionesModel->inactivarRevista($idRev);
     }
 
 }

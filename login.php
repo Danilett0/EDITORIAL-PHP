@@ -12,18 +12,33 @@ if (isset($_POST['usuario']) && isset($_POST['pass'])) {
 
 ?>
 
-<form action="index.php" method="post" class="FormLogin">
-        <h2>Iniciar Sesion</h2>
-        <div>
-            <p>Usuario</p>
-            <input type="text" name="usuario" required>
-        </div>
-        <div>
-            <p>Contraseña</p>
-            <input type="password" name="pass" required>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
 
-        <button type="submit">INGRESAR</button>
-        <br>
-        <p class="error"> <?= $errorLogin ?></p>
-    </form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+</head>
+
+<body class="BackBody" >
+
+        <form action="index.php" method="post" class="FormLogin">
+            <h2>Iniciar Sesion</h2>
+            <div>
+                <p>Usuario</p>
+                <input type="text" name="usuario" required>
+            </div>
+            <div>
+                <p>Contraseña</p>
+                <input type="password" name="pass" required>
+            </div>
+
+            <button type="submit">INGRESAR</button>
+            <br>
+            <p class="error"> <?= $errorLogin ?></p>
+        </form>
+
+</body>
+
+</html>

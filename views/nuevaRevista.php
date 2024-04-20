@@ -1,16 +1,8 @@
 <?php
-session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . "/editorial/controllers/OperacionesDbController.php";
-
-if (!$_SESSION['login']) {
-    header('Location: ../index.php');
-    exit();
-}
-
 $operacionesRevista = new OperacionesDbController();
 
 if (isset($_POST['nomRev'])) {
-
     $idRevista = $operacionesRevista->crearNuevaRevista($_POST['nomRev']);
 
     if ($idRevista) {
@@ -31,14 +23,11 @@ if (isset($_POST['nomRev'])) {
             header('Location: home.php');
         }
     }
-
 }
-
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -49,66 +38,70 @@ if (isset($_POST['nomRev'])) {
 
 <body>
 
-    <div class="MensajeBienbenida">
-        <p>Hola! <?= $_SESSION['userName'] ?></p>
-        <p><?= $_SESSION['userCargo'] ?></p>
-    </div>
-    <div class="Menu">
+    <header>
+        <?php
+        include_once $_SERVER['DOCUMENT_ROOT'] . "/editorial/views/encabezadoDatosUser.php";
+        ?>
 
-        <a href="home.php?> ">
-            <img class="Previous" src="../images/icons/previous.png" alt="previous">
-        </a>
-
-    </div>
-
-    <form action="nuevaRevista.php" method="post" class="NuevaRevista">
-        <br><br><br><br><br>
-
-        <h1>Crear nueva revista</h1>
-
-        <div class="revista">
-            <h5>Ingrese el nombre de la revista</h5>
-            <input name="nomRev" type="text" required>
-        </div>
-        <br>
-        <i>Nota: la revista debe contener al menos un articulo para ser creada</i>
-        <div class="articulo">
-
-            <p>Nombre del articulo</p>
-            <input name="nomArt" type="text" required>
-
-            <p>Contenido del articulo</p>
-            <textarea name="contenidoArt" required></textarea>
-
-            <p>adjunte una imagen al articulo</p>
-            <input name="imagenArt" type="file">
-
-            <div class="colx2">
-                <div>
-                    <p>Periosidad</p>
-                    <input name="periosidadArt" type="number" required>
-                </div>
-
-                <div>
-                    <p>Categoria del articulo</p>
-                    <select name="categoriaArt">
-                        <option value="ciencia">ciencia</option>
-                        <option value="farandula">farandula</option>
-                        <option value="tecnologia">tecnologia</option>
-                    </select>
-                </div>
-
+        <div class="MenuNavegacion">
+            <div class="BoxLeft">
+                <a class="OptionMenu" href="home.php">
+                    <img class="icon" src="../images/icons/previous.png" alt="regresar">
+                </a>
             </div>
 
+            <div class="BoxRight">
 
-
-
-            <button type="submit">Finalizar</button>
-
+            </div>
         </div>
+    </header>
+
+    <main>
+        <form action="nuevaRevista.php" method="post" class="NuevaRevista">
+
+            <h2 class="BigTitle" >Crear nueva revista</h1>
+
+            <div class="revista">
+                <input name="nomRev" type="text" placeholder="Nombre Revista" required>
+            </div>
+            
+            <br>
+            <i>Nota: la revista debe contener al menos un articulo para ser creada</i>
+
+            <div class="articulo">
+
+                <p>Nombre del articulo</p>
+                <input name="nomArt" type="text" required>
+
+                <p>Contenido del articulo</p>
+                <textarea name="contenidoArt" rows="15"  required></textarea>
+
+                <p>adjunte una imagen al articulo</p>
+
+                <input name="imagenArt" type="file">
+                
+                <div class="colx2">
+                    <div>
+                        <p>Periosidad</p>
+                        <input name="periosidadArt" type="number" required>
+                    </div>
+                    <div>
+                        <p>Categoria del articulo</p>
+                        <select name="categoriaArt">
+                            <option value="ciencia">ciencia</option>
+                            <option value="farandula">farandula</option>
+                            <option value="tecnologia">tecnologia</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit">Finalizar</button>
+            
+            </div>
+        </form>
+    </main>
 
 
-    </form>
 
 </body>
 

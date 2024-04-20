@@ -17,34 +17,34 @@ class OperacionesDbModel
     }
 
     public function buscarRevistas() {
-        $qNuevaRev = $this->conn->query("SELECT doc_revista, nombre FROM revistas ");
-        
+        $qNuevaRev = $this->conn->query("SELECT doc_revista, nombre FROM revistas WHERE estado != 'INACTIVO' ");
+
         $datos = array();
-        while($row = mysqli_fetch_assoc($qNuevaRev)){
-         array_push($datos, $row);
+        while ($row = mysqli_fetch_assoc($qNuevaRev)) {
+            array_push($datos, $row);
         }
         return $datos;
     }
 
     public function buscarRevistaId($idRev) {
         $qNuevaRev = $this->conn->query("SELECT * FROM revistas where doc_revista = $idRev ");
-        
+
         return mysqli_fetch_assoc($qNuevaRev);
     }
 
     public function buscarArticulos($idRevista) {
         $qArticulos = $this->conn->query("SELECT * FROM articulos WHERE doc_revista = $idRevista AND estado != 'INACTIVO' ");
-        
+
         $datos = array();
-        while($row = mysqli_fetch_assoc($qArticulos)){
-         array_push($datos, $row);
+        while ($row = mysqli_fetch_assoc($qArticulos)) {
+            array_push($datos, $row);
         }
         return $datos;
     }
 
     public function buscarArticuloId($idArt) {
         $qArticulos = $this->conn->query("SELECT * FROM articulos WHERE doc_articulo = $idArt AND estado != 'INACTIVO' ");
-        
+
         return mysqli_fetch_assoc($qArticulos);
     }
 
@@ -53,9 +53,9 @@ class OperacionesDbModel
         $qInsert = "INSERT INTO revistas(nombre) ";
         $qInsert .= "VALUES ( '$nombre' ) ";
 
-        if($this->conn->query($qInsert)){
+        if ($this->conn->query($qInsert)) {
             return $this->conn->insert_id;
-        }else{
+        } else {
             return "error al crear nueva revista";
         }
     }
@@ -82,12 +82,33 @@ class OperacionesDbModel
 
         $qUpdate = "UPDATE articulos SET estado ='INACTIVO' WHERE doc_articulo = $idArt ";
 
-        if($this->conn->query($qUpdate)){
+        if ($this->conn->query($qUpdate)) {
             return true;
-        }else{
+        } else {
             return "error al inactivar articulo Id. " . $idArt;
         }
     }
 
+    public function inactivarRevista($idRev) {
+        $qInactivaRev = "UPDATE revistas SET estado ='INACTIVO' WHERE doc_revista = $idRev ";
 
+        if ($this->conn->query($qInactivaRev)) {
+            $qArticulosRel = "SELECT doc_articulo FROM articulos WHERE doc_revista = $idRev ";
+
+            $result = $this->conn->query($qArticulosRel);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $idArt = $row['doc_articulo'];
+                    $qDeleteArt = "UPDATE articulos SET estado ='INACTIVO' WHERE  doc_articulo = $idArt ";
+                    $this->conn->query($qDeleteArt);
+                }
+                return true;
+            } else {
+                return ['success' => true, 'message' => 'no se econtraron articulos relacionados'];
+            }
+        } else {
+            return ['success' => false, 'message' => 'error al inactivar registro'];
+        }
+    }
 }
