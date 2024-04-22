@@ -9,7 +9,6 @@ if (isset($_POST['usuario']) && isset($_POST['pass'])) {
 
     $result ? header('Location: ./views/home.php') : $errorLogin = "Datos Incorrectos";
 }
-
 ?>
 
 <!DOCTYPE html>
