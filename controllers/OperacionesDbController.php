@@ -29,6 +29,10 @@ class OperacionesDbController
         return $this->operacionesModel->buscarArticuloId($idArt);
     }
 
+    public function actualizarArticulo($idArt, $nomArt, $contArt, $periArt, $catArt) {
+        return $this->operacionesModel->actualizarArticulo($idArt, $nomArt, $contArt, $periArt, $catArt);
+    }
+
     public function crearNuevaRevista($nombre) {
 
         return $this->operacionesModel->crearNuevaRevista($nombre);

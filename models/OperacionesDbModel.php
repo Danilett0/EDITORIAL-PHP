@@ -48,6 +48,14 @@ class OperacionesDbModel
         return mysqli_fetch_assoc($qArticulos);
     }
 
+    public function actualizarArticulo($idArt, $nomArt, $contArt, $periArt, $catArt) {
+        $qUpdate  = "UPDATE articulos ";
+        $qUpdate .= "SET nombre='$nomArt', contenido='$contArt', periosidad='$periArt', categoria='$catArt' ";
+        $qUpdate .= "WHERE doc_articulo = $idArt";
+
+        return  $this->conn->query($qUpdate);
+    }
+
     public function crearNuevaRevista($nombre) {
 
         $qInsert = "INSERT INTO revistas(nombre) ";
